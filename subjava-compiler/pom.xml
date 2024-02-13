@@ -48,6 +48,18 @@
          <version>5.6.0</version>
          <scope>test</scope>
      </dependency>
+     <!-- https://mvnrepository.com/artifact/de.jflex/jflex -->
+     <dependency>
+         <groupId>de.jflex</groupId>
+         <artifactId>jflex</artifactId>
+         <version>1.9.1</version>
+     </dependency>
+     <!-- https://mvnrepository.com/artifact/edu.princeton.cup/java-cup -->
+     <dependency>
+         <groupId>edu.princeton.cup</groupId>
+         <artifactId>java-cup</artifactId>
+         <version>10k</version>
+     </dependency>
   </dependencies>
 
   <build>
