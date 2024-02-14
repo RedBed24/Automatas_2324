@@ -10,6 +10,8 @@
 
   <name>subjava-compiler</name>
   <url>https://github.com/RedBed24/Automatas_2324</url>
+  <description>Proyecto del laboratorio para la asignatura de Autómatas y Computación durante el curso 2324.
+  Se creará un compilador de un sublenguaje de java.</description>
 
   <developers>
     <developer>
