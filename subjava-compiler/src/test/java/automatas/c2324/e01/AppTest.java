@@ -1,4 +1,4 @@
-package automatas_2324.e01;
+package automatas.c2324.e01;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;  
