@@ -54,7 +54,7 @@
      <dependency>
          <groupId>de.jflex</groupId>
          <artifactId>jflex</artifactId>
-         <version>1.9.1</version>
+         <version>1.8.2</version>
      </dependency>
      <!-- https://mvnrepository.com/artifact/edu.princeton.cup/java-cup -->
      <dependency>
@@ -71,6 +71,49 @@
 
   <build>
     <plugins>
+      <plugin>
+        <groupId>de.jflex</groupId>
+        <artifactId>jflex-maven-plugin</artifactId>
+        <version>1.8.2</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.github.vbmacher</groupId>
+        <artifactId>cup-maven-plugin</artifactId>
+        <version>11b-20160615-3</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+	<packageName>automatas.c2324.e01</packageName>
+          <cupDefinition>src/main/cup/automatas/c2324/e01/exprArit_fich.cup</cupDefinition>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>automatas.c2324.e01.parser</mainClass>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+      </plugin>
+
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
