@@ -3,7 +3,7 @@
 ## Compilado
 
 ```
-mvn assembly:assembly
+mvn compile assembly:single
 ```
 
 ## Ejecucion
