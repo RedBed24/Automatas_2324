@@ -7,7 +7,15 @@ import automatas.c2324.e01.sym;
 
 %%
 /* adrian hasta DEF_MAIN */
-int|boolean  { System.out.printf("T_DATO -> %s", yylex()); }
+int | boolean  { System.out.printf("T_DATO -> %s", yylex()); }
+true | false  { System.out.printf("BOOLEANO-> %s", yylex()); }
+​> | < | >= | <= | == | !=   { System.out.printf("OP_RLC -> %s", yylex()); }
++ | - | * | /  { System.out.printf("​OP_ART  -> %s", yylex()); }
+​&& | '||' | !  { System.out.printf("​OP_LOG  -> %s", yylex()); }
+public class  { System.out.printf("​DEF_CLASE  -> %s", yylex()); }
+public static  { System.out.printf("​DEF_METODO  -> %s", yylex()); }
+public static void main  { System.out.printf("​DEF_MAIN  -> %s", yylex()); }
+
 
 /* elena hasta DOS_PUNTOS */
 void  { System.out.printf("VOID -> %s", yylex()); }
