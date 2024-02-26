@@ -5,6 +5,10 @@ import automatas.c2324.e01.sym;
 
 %%
 
+%class Analizador
+%standalone
+%8bit
+
 %%
 /* adrian hasta DEF_MAIN */
 int | boolean  { System.out.printf("T_DATO -> %s", yylex()); }
@@ -28,5 +32,14 @@ return  { System.out.printf("RETURN -> %s", yylex()); }
 ;  { System.out.printf("PUNTO_COMA -> %s", yylex()); }
 
 /* samuel resto */
-
+= { System.out.printf("IGUAL -> %s", yylex()); }
+"{" { System.out.printf("A_LLAVE -> %s", yylex()); }
+"}" { System.out.printf("C_LLAVE -> %s", yylex()); }
+"(" { System.out.printf("A_PAREN -> %s", yylex()); }
+")" { System.out.printf("C_PAREN -> %s", yylex()); }
+"[" { System.out.printf("A_CORCH -> %s", yylex()); }
+"]" { System.out.printf("C_CORCH -> %s", yylex()); }
+[a-zA-Z][a-zA-Z0-9_]* { System.out.printf("ID -> %s", yylex()); }
+[1-9][0-9]*|0 { System.out.printf("NUM -> %s", yylex()); }
+. {}
 
