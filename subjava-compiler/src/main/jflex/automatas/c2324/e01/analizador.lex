@@ -10,6 +10,14 @@ import automatas.c2324.e01.sym;
 int|boolean  { System.out.printf("T_DATO -> %s", yylex()); }
 
 /* elena hasta DOS_PUNTOS */
+void  { System.out.printf("VOID -> %s", yylex()); }
+"++"|--  { System.out.printf("OP_UNARIO -> %s", yylex()); }
+while  { System.out.printf("WHILE -> %s", yylex()); }
+for  { System.out.printf("FOR -> %s", yylex()); }
+do  { System.out.printf("DO -> %s", yylex()); }
+return  { System.out.printf("RETURN -> %s", yylex()); }
+:  { System.out.printf("RETURN -> %s", yylex()); }
+;  { System.out.printf("RETURN -> %s", yylex()); }
 
 /* samuel resto */
 
