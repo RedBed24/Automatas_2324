@@ -16,8 +16,8 @@ while  { System.out.printf("WHILE -> %s", yylex()); }
 for  { System.out.printf("FOR -> %s", yylex()); }
 do  { System.out.printf("DO -> %s", yylex()); }
 return  { System.out.printf("RETURN -> %s", yylex()); }
-:  { System.out.printf("RETURN -> %s", yylex()); }
-;  { System.out.printf("RETURN -> %s", yylex()); }
+:  { System.out.printf("DOS_PUNTOS -> %s", yylex()); }
+;  { System.out.printf("PUNTO_COMA -> %s", yylex()); }
 
 /* samuel resto */
 
