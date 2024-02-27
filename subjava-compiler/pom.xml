@@ -83,6 +83,7 @@
           </execution>
         </executions>
       </plugin>
+      <!--
       <plugin>
         <groupId>com.github.vbmacher</groupId>
         <artifactId>cup-maven-plugin</artifactId>
@@ -99,6 +100,7 @@
           <cupDefinition>src/main/cup/automatas/c2324/e01/exprArit_fich.cup</cupDefinition>
         </configuration>
       </plugin>
+      -->
 
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>

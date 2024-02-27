@@ -1,8 +1,5 @@
 package automatas.c2324.e01;
 
-import java_cup.runtime.Symbol;
-import automatas.c2324.e01.sym;
-
 %%
 
 %class Analizador
