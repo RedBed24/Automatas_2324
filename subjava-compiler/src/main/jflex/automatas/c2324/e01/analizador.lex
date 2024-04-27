@@ -7,30 +7,47 @@ package automatas.c2324.e01;
 %8bit
 
 %%
-int | boolean { System.out.printf("T_DATO -> %s\n", yytext()); }
-true | false { System.out.printf("BOOLEANO-> %s\n", yytext()); }
-">" | "<" | ">=" | "<=" | "==" | "!=" { System.out.printf("OP_RLC -> %s\n", yytext()); }
-"+" | - | "*" | "/" { System.out.printf("OP_ART -> %s\n", yytext()); }
-&& | "||" | "!" { System.out.printf("OP_LOG -> %s\n", yytext()); }
-public { System.out.printf("VIS -> %s\n", yytext()); }
-class { System.out.printf("CLASE -> %s\n", yytext()); }
-main { System.out.printf("MAIN -> %s\n", yytext()); }
-void { System.out.printf("VOID -> %s\n", yytext()); }
-"++"|-- { System.out.printf("OP_UNARIO -> %s\n", yytext()); }
-while { System.out.printf("WHILE -> %s\n", yytext()); }
-for { System.out.printf("FOR -> %s\n", yytext()); }
-do { System.out.printf("DO -> %s\n", yytext()); }
-return { System.out.printf("RETURN -> %s\n", yytext()); }
-: { System.out.printf("DOS_PUNTOS -> %s\n", yytext()); }
-; { System.out.printf("PUNTO_COMA -> %s\n", yytext()); }
-= { System.out.printf("IGUAL -> %s\n", yytext()); }
-"{" { System.out.printf("A_LLAVE -> %s\n", yytext()); }
-"}" { System.out.printf("C_LLAVE -> %s\n", yytext()); }
-"(" { System.out.printf("A_PAREN -> %s\n", yytext()); }
-")" { System.out.printf("C_PAREN -> %s\n", yytext()); }
-"[" { System.out.printf("A_CORCH -> %s\n", yytext()); }
-"]" { System.out.printf("C_CORCH -> %s\n", yytext()); }
-[a-zA-Z][a-zA-Z0-9_]* { System.out.printf("ID -> %s\n", yytext()); }
-[1-9][0-9]*|0 { System.out.printf("NUM -> %s\n", yytext()); }
+
+int {return new Symbol(sym.TIPO_INT, yytext());}
+boolean {return new Symbol(sym.TIPO_BOOL, yytext());}
+true {return new Symbol(sym.BOOLEANO, yytext());}
+false {return new Symbol(sym.BOOLEANO, yytext());}
+">" {return new Symbol(sym.OP_RLC, yytext());}
+"<" {return new Symbol(sym.OP_RLC, yytext());}
+">=" {return new Symbol(sym.OP_RLC, yytext());}
+"<=" {return new Symbol(sym.OP_RLC, yytext());}
+"==" {return new Symbol(sym.OP_IGUAL, yytext());}
+"!=" {return new Symbol(sym.OP_IGUAL, yytext());}
+"+" {return new Symbol(sym.OP_ART_SUM, yytext());}
+"-" {return new Symbol(sym.OP_ART_MEN, yytext());}
+"*" {return new Symbol(sym.OP_ART, yytext());}
+"/" {return new Symbol(sym.OP_ART, yytext());}
+"&&" {return new Symbol(sym.OP_LOG, yytext());}
+"||" {return new Symbol(sym.OP_LOG, yytext());}
+"!" {return new Symbol(sym.OP_NOT, yytext());}
+public {return new Symbol(sym.VIS, yytext());}
+class {return new Symbol(sym.CLASE, yytext());}
+static {return new Symbol(sym.STAT, yytext());}
+main {return new Symbol(sym.MAIN, yytext());}
+void {return new Symbol(sym.VOID, yytext());}
+"++" {return new Symbol(sym.OP_UNARIO, yytext());}
+"--" {return new Symbol(sym.OP_UNARIO, yytext());}
+while {return new Symbol(sym.WHILE, yytext());}
+for {return new Symbol(sym.FOR, yytext());}
+do {return new Symbol(sym.DO, yytext());}
+return {return new Symbol(sym.RETURN, yytext());}
+";" {return new Symbol(sym.PUNTO_COMA, yytext());}
+":" {return new Symbol(sym.DOS_PUNTOS, yytext());}
+"=" {return new Symbol(sym.IGUAL, yytext());}
+"{" {return new Symbol(sym.A_LLAVE, yytext());}
+"}" {return new Symbol(sym.C_LLAVE, yytext());}
+"(" {return new Symbol(sym.A_PAREN, yytext());}
+")" {return new Symbol(sym.C_PAREN, yytext());}
+"[" {return new Symbol(sym.A_CORCH, yytext());}
+"]" {return new Symbol(sym.C_CORCH, yytext());}
+"." {return new Symbol(sym.PUNTO, yytext());}
+"," {return new Symbol(sym.COMA, yytext());}
+[a-zA-Z][a-zA-Z0-9_]* {return new Symbol(sym.ID, yytext());}
+[1-9][0-9]*|0 {return new Symbol(sym.NUM, yytext());}
 .|\n {}
 
