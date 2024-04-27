@@ -11,6 +11,7 @@ parser code {:
 			new parser(new Analizador(reader)).parse();
 		}
 		catch ( Exception e) {
+			System.out.println(e);
 			System.out.println("\nAnálisis INCORRECTO !!");
 			System.exit(1);}
 		System.out.println("\nAnálisis Correcto ");
@@ -18,18 +19,21 @@ parser code {:
 :}
 
 
-terminal PUNTOYCOMA, MAS, POR, PAREN_I, PAREN_D;
-terminal Integer NUMERO;
+terminal NUM, ID, TIPO_DATO, BOOLEANO, OP_RLC, OP_IGUAL, OP_ART_SUM, OP_ART_MEN, OP_ART, OP_LOG, OP_NOT, VIS, CLASE, STAT, VOID, OP_UNARIO, WHILE, FOR, DO, RETURN, PUNTO_COMA, DOS_PUNTOS, IGUAL, A_LLAVE, C_LLAVE, A_PAREN, C_PAREN, A_CORCH, C_CORCH, PUNTO, COMA;
 
-non terminal lista, expr_p;
-non terminal Integer expr;
+non terminal min_1_id_tail, clase, bloque_metodos, metodo, cabecera, parametros, min_1_param, declaracion, min_1_id;
 
-precedence left MAS;
-precedence left POR;
+precedence left OP_LOG;
+precedence left OP_RLC;
+precedence left OP_IGUAL;
 
-lista ::= lista expr_p | expr_p;
-expr_p ::= expr PUNTOYCOMA;
-expr      ::= NUMERO
-            | expr MAS expr
-	    | expr POR expr
-	    | PAREN_I expr PAREN_D ;
+precedence left OP_ART;
+precedence left OP_NOT;
+precedence left OP_ART_SUM;
+precedence left OP_ART_MEN;
+
+
+clase ::= VIS CLASE ID A_LLAVE bloque_metodos C_LLAVE;
+bloque_metodos ::= metodo bloque_metodos | metodo;
+metodo ::= cabecera;
+cabecera ::= VIS STAT;

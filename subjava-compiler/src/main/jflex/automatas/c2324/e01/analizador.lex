@@ -11,8 +11,8 @@ import automatas.c2324.e01.sym;
 
 %%
 
-int {return new Symbol(sym.TIPO_INT, yytext());}
-boolean {return new Symbol(sym.TIPO_BOOL, yytext());}
+int {return new Symbol(sym.TIPO_DATO, yytext());}
+boolean {return new Symbol(sym.TIPO_DATO, yytext());}
 true {return new Symbol(sym.BOOLEANO, yytext());}
 false {return new Symbol(sym.BOOLEANO, yytext());}
 ">" {return new Symbol(sym.OP_RLC, yytext());}
@@ -31,7 +31,6 @@ false {return new Symbol(sym.BOOLEANO, yytext());}
 public {return new Symbol(sym.VIS, yytext());}
 class {return new Symbol(sym.CLASE, yytext());}
 static {return new Symbol(sym.STAT, yytext());}
-main {return new Symbol(sym.MAIN, yytext());}
 void {return new Symbol(sym.VOID, yytext());}
 "++" {return new Symbol(sym.OP_UNARIO, yytext());}
 "--" {return new Symbol(sym.OP_UNARIO, yytext());}
