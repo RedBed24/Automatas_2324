@@ -83,7 +83,6 @@
           </execution>
         </executions>
       </plugin>
-      <!--
       <plugin>
         <groupId>com.github.vbmacher</groupId>
         <artifactId>cup-maven-plugin</artifactId>
@@ -97,10 +96,9 @@
         </executions>
         <configuration>
 	<packageName>automatas.c2324.e01</packageName>
-          <cupDefinition>src/main/cup/automatas/c2324/e01/exprArit_fich.cup</cupDefinition>
+          <cupDefinition>src/main/cup/automatas/c2324/e01/AnalizadorGramatico.cup</cupDefinition>
         </configuration>
       </plugin>
-      -->
 
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
