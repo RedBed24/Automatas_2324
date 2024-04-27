@@ -106,7 +106,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>automatas.c2324.e01.Analizador</mainClass>
+              <mainClass>automatas.c2324.e01.parser</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>

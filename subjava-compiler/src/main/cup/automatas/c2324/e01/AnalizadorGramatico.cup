@@ -1,5 +1,5 @@
 
-import automatas.c2324.e01.Yylex;
+import automatas.c2324.e01.Analizador;
 import java_cup.runtime.*;
 import java.io.*;
 
@@ -8,7 +8,7 @@ parser code {:
  		FileInputStream stream = new java.io.FileInputStream(args[0]);
 		Reader reader = new InputStreamReader(stream);
 		try{
-			new parser(new Yylex(reader)).parse();
+			new parser(new Analizador(reader)).parse();
 		}
 		catch ( Exception e) {
 			System.out.println("\nAnálisis INCORRECTO !!");
