@@ -19,47 +19,22 @@ parser code {:
 :}
 
 
-terminal NUM, ID, TIPO_DATO, BOOLEANO, OP_RLC, OP_IGUAL, OP_ART_SUM, OP_ART_MEN, OP_ART, OP_LOG, OP_NOT, VIS, CLASE, STAT, VOID, OP_UNARIO, WHILE, FOR, DO, RETURN, PUNTO_COMA, DOS_PUNTOS, IGUAL, A_LLAVE, C_LLAVE, A_PAREN, C_PAREN, A_CORCH, C_CORCH, PUNTO, COMA;
+terminal ID, BOOLEANO, OP_ART, NUM, OP_ART_MEN, OP_ART_SUM, OP_LOG, OP_NOT, OP_IGUAL, OP_RLC, A_PAREN, C_PAREN;
 
-non terminal clase, bloque_metodos, metodo, cabecera, parametros, min_1_param, declaracion, min_1_id, bloque, sentencias, llamada, argumentos, min_1_arg, asignacion, aritmeticas, logica, return, unaria, bucle, while, for, do_while, expresiones, dato, booleano, relacionales, no_suma, f;
+non terminal booleano, logicas, relacionales, dato, identificador, aritmeticas, id_num;
 
+precedence right OP_NOT;
 precedence left OP_LOG;
-precedence left OP_RLC;
 precedence left OP_IGUAL;
-
 precedence left OP_ART;
-precedence left OP_NOT;
 precedence left OP_ART_SUM;
 precedence left OP_ART_MEN;
 
-precedence left COMA;
+aritmeticas ::= aritmeticas OP_ART_SUM aritmeticas | aritmeticas OP_ART_MEN aritmeticas | aritmeticas OP_ART aritmeticas | A_PAREN aritmeticas C_PAREN | OP_ART_MEN aritmeticas | id_num;
 
-
-clase ::= VIS CLASE ID A_LLAVE bloque_metodos C_LLAVE;
-bloque_metodos ::= metodo bloque_metodos | metodo;
-metodo ::= cabecera bloque;
-cabecera ::= VIS STAT VOID ID A_PAREN parametros C_PAREN | VIS STAT TIPO_DATO ID A_PAREN parametros C_PAREN;
-parametros ::= min_1_param | ;
-min_1_param ::= declaracion COMA min_1_param | declaracion;
-declaracion ::= TIPO_DATO min_1_id;
-min_1_id ::= ID | ID COMA min_1_id;
-bloque ::= A_LLAVE sentencias C_LLAVE;
-sentencias ::= llamada PUNTO_COMA | asignacion PUNTO_COMA | declaracion PUNTO_COMA | return PUNTO_COMA | unaria PUNTO_COMA | bucle;
-llamada ::= ID A_PAREN argumentos C_PAREN | ID PUNTO llamada;
-asignacion ::= ID IGUAL aritmeticas | ID IGUAL logica | ID IGUAL unaria | ID OP_ART IGUAL aritmeticas | ID OP_ART_SUM IGUAL aritmeticas | ID OP_ART_MEN IGUAL aritmeticas;
-argumentos ::= min_1_arg | ;
-min_1_arg ::= expresiones COMA min_1_arg | llamada COMA min_1_arg | expresiones | llamada;
-return ::= RETURN | RETURN aritmeticas | RETURN logica | return unaria;
-bucle ::= while | for | do_while;
-while ::= WHILE A_PAREN logica C_PAREN bloque;
-for ::= FOR A_PAREN declaracion asignacion PUNTO_COMA logica PUNTO_COMA asignacion C_PAREN bloque | FOR A_PAREN asignacion PUNTO_COMA logica PUNTO_COMA asignacion C_PAREN bloque;
-do_while ::= DO bloque WHILE A_PAREN logica C_PAREN PUNTO_COMA;
-dato ::= ID | NUM | aritmeticas;
-booleano ::= ID | BOOLEANO | relacionales;
-expresiones ::= dato | booleano | unaria;
-aritmeticas ::= no_suma OP_ART_SUM aritmeticas | no_suma OP_ART_MEN aritmeticas | no_suma;
-no_suma ::= f OP_ART no_suma | f;
-f ::= OP_ART_MEN f | A_PAREN aritmeticas C_PAREN | dato;
-
-
-
+logicas ::= OP_NOT logicas | booleano | logicas OP_LOG logicas | A_PAREN logicas C_PAREN;
+relacionales ::= dato OP_RLC dato | dato OP_IGUAL dato | booleano OP_IGUAL booleano;
+booleano ::= identificador | BOOLEANO | relacionales;
+dato ::=  id_num | aritmeticas;
+id_num ::= identificador | NUM;
+identificador ::= ID;
