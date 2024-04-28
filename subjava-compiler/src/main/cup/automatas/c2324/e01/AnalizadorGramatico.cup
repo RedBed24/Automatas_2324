@@ -19,13 +19,14 @@ parser code {:
 :}
 
 
-terminal NUM, ID, TIPO_DATO, BOOLEANO, OP_RLC, OP_IGUAL, OP_ART_SUM, OP_ART_MEN, OP_ART, OP_LOG, OP_NOT, VIS, CLASE, STAT, VOID, OP_UNARIO, WHILE, FOR, DO, RETURN, PUNTO_COMA, DOS_PUNTOS, IGUAL, A_LLAVE, C_LLAVE, A_PAREN, C_PAREN, A_CORCH, C_CORCH, PUNTO, COMA;
+terminal NUM, ID, TIPO_DATO, BOOLEANO, OP_RLC, OP_IGUAL, OP_ART_SUM, OP_ART_MEN, OP_ART, OP_LOG, OP_NOT, VIS, CLASE, STAT, VOID, OP_UNARIO, WHILE, FOR, DO, RETURN, PUNTO_COMA, IGUAL, A_LLAVE, C_LLAVE, A_PAREN, C_PAREN, PUNTO, COMA, ASIGNACION;
 
 non terminal clase, bloque_metodos, metodo, cabecera, parametros, min_1_param, declaracion, min_1_id, bloque, sentencias, llamada, argumentos, min_1_arg, asignacion, aritmeticas, logica, return, unaria, bucle, while, for, do_while, expresiones, dato, booleano, relacionales, no_suma, f;
 
 precedence left OP_LOG;
 precedence left OP_RLC;
 precedence left OP_IGUAL;
+precedence left OP_ASIGNACION;
 
 precedence left OP_ART;
 precedence left OP_NOT;
@@ -40,7 +41,7 @@ bloque_metodos ::= metodo bloque_metodos | metodo;
 metodo ::= cabecera bloque;
 cabecera ::= VIS STAT VOID ID A_PAREN parametros C_PAREN | VIS STAT TIPO_DATO ID A_PAREN parametros C_PAREN;
 parametros ::= min_1_param | ;
-min_1_param ::= declaracion COMA min_1_param | declaracion;
+min_1_param ::= TIPO_DATO ID COMA min_1_param | TIPO_DATO ID;
 declaracion ::= TIPO_DATO min_1_id;
 min_1_id ::= ID | ID COMA min_1_id;
 bloque ::= A_LLAVE sentencias C_LLAVE;
@@ -48,7 +49,8 @@ sentencias ::= llamada PUNTO_COMA | asignacion PUNTO_COMA | declaracion PUNTO_CO
 llamada ::= ID A_PAREN argumentos C_PAREN | ID PUNTO llamada;
 asignacion ::= ID IGUAL aritmeticas | ID IGUAL logica | ID IGUAL unaria | ID OP_ART IGUAL aritmeticas | ID OP_ART_SUM IGUAL aritmeticas | ID OP_ART_MEN IGUAL aritmeticas;
 argumentos ::= min_1_arg | ;
-min_1_arg ::= expresiones COMA min_1_arg | llamada COMA min_1_arg | expresiones | llamada;
+min_1_arg ::= arg COMA min_1_arg | arg;
+arg ::= logicas | aritmeticas | llamada;
 return ::= RETURN | RETURN aritmeticas | RETURN logica | return unaria;
 bucle ::= while | for | do_while;
 while ::= WHILE A_PAREN logica C_PAREN bloque;
