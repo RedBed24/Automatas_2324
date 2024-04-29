@@ -97,6 +97,7 @@
         <configuration>
 	<packageName>automatas.c2324.e01</packageName>
           <cupDefinition>src/main/cup/automatas/c2324/e01/AnalizadorGramatico.cup</cupDefinition>
+	  <expectedConflicts>1</expectedConflicts>
         </configuration>
       </plugin>
 
