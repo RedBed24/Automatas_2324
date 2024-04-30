@@ -21,10 +21,10 @@ false {return new Symbol(sym.BOOLEANO, yytext());}
 "<=" {return new Symbol(sym.OP_RLC, yytext());}
 "==" {return new Symbol(sym.OP_IGUAL, yytext());}
 "!=" {return new Symbol(sym.OP_IGUAL, yytext());}
-"+" {return new Symbol(sym.OP_ART_SUM, yytext());}
-"-" {return new Symbol(sym.OP_ART_MEN, yytext());}
 "*" {return new Symbol(sym.OP_ART, yytext());}
 "/" {return new Symbol(sym.OP_ART, yytext());}
+"+" {return new Symbol(sym.OP_ART_SUM, yytext());}
+"-" {return new Symbol(sym.OP_ART_MEN, yytext());}
 "&&" {return new Symbol(sym.OP_LOG, yytext());}
 "||" {return new Symbol(sym.OP_LOG, yytext());}
 "!" {return new Symbol(sym.OP_NOT, yytext());}
@@ -40,10 +40,10 @@ do {return new Symbol(sym.DO, yytext());}
 return {return new Symbol(sym.RETURN, yytext());}
 ";" {return new Symbol(sym.PUNTO_COMA, yytext());}
 "=" {return new Symbol(sym.IGUAL, yytext());}
-"+=" {return new Symbol(sym.ASIGNACION, yytext();}
-"-=" {return new Symbol(sym.ASIGNACION, yytext();}
-"*=" {return new Symbol(sym.ASIGNACION, yytext();}
-"/=" {return new Symbol(sym.ASIGNACION, yytext();}
+"+=" {return new Symbol(sym.ASIGNACION, yytext());}
+"-=" {return new Symbol(sym.ASIGNACION, yytext());}
+"*=" {return new Symbol(sym.ASIGNACION, yytext());}
+"/=" {return new Symbol(sym.ASIGNACION, yytext());}
 "{" {return new Symbol(sym.A_LLAVE, yytext());}
 "}" {return new Symbol(sym.C_LLAVE, yytext());}
 "(" {return new Symbol(sym.A_PAREN, yytext());}
