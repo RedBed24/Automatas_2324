@@ -103,11 +103,12 @@ parametros ::= min_1_param | ;
 min_1_param ::= TIPO_DATO ID COMA min_1_param | TIPO_DATO ID;
 bloque ::= A_LLAVE sentencias C_LLAVE;
 
-sentencias ::= llamada PUNTO_COMA
-             | asignacion PUNTO_COMA
-	     | declaracion PUNTO_COMA
-	     | return PUNTO_COMA
-	     | bucle;
+sentencias ::= llamada PUNTO_COMA sentencias
+             | asignacion PUNTO_COMA sentencias
+	     | declaracion PUNTO_COMA sentencias
+	     | return PUNTO_COMA sentencias
+	     | bucle sentencias 
+		 | ;
 
 llamada ::= ID A_PAREN argumentos C_PAREN
           | ID PUNTO llamada;
