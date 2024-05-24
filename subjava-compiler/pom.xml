@@ -6,25 +6,6 @@
   <artifactId>subjava-compiler</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <packaging>jar</packaging>
-
-  <name>subjava-compiler</name>
-  <url>https://github.com/RedBed24/Automatas_2324</url>
-  <description>Proyecto del laboratorio para la asignatura de Autómatas y Computación durante el curso 2324.
-  Se creará un compilador de un sublenguaje de java.</description>
-
-  <developers>
-    <developer>
-      <name>Elena Ballesteros Morallón</name>
-    </developer>
-    <developer>
-      <name>Samuel Espejo Gil</name>
-    </developer>
-    <developer>
-      <name>Adrián Ramos Romero</name>
-    </developer>
-  </developers>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
@@ -32,24 +13,6 @@
   </properties>
 
   <dependencies>
-     <dependency>
-         <groupId>org.junit.jupiter</groupId>
-         <artifactId>junit-jupiter-api</artifactId>
-         <version>5.6.0</version>
-         <scope>test</scope>
-     </dependency>
-     <dependency>
-         <groupId>org.junit.jupiter</groupId>
-         <artifactId>junit-jupiter-params</artifactId>
-         <version>5.6.0</version>
-         <scope>test</scope>
-     </dependency>
-     <dependency>
-         <groupId>org.junit.jupiter</groupId>
-         <artifactId>junit-jupiter-engine</artifactId>
-         <version>5.6.0</version>
-         <scope>test</scope>
-     </dependency>
      <!-- https://mvnrepository.com/artifact/de.jflex/jflex -->
      <dependency>
          <groupId>de.jflex</groupId>
@@ -61,11 +24,6 @@
          <groupId>edu.princeton.cup</groupId>
          <artifactId>java-cup</artifactId>
          <version>10k</version>
-     </dependency>
-     <dependency>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-checkstyle-plugin</artifactId>
-          <version>3.3.1</version>
      </dependency>
   </dependencies>
 
@@ -123,104 +81,6 @@
                 </execution>
             </executions>
       </plugin>
-
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.8.11</version>
-        <executions>
-          <execution>
-            <id>default-prepare-agent</id>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>default-prepare-agent-integration</id>
-            <goals>
-              <goal>prepare-agent-integration</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>default-report</id>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>default-report-integration</id>
-            <goals>
-              <goal>report-integration</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>default-check</id>
-            <goals>
-              <goal>check</goal>
-            </goals>
-            <configuration>
-              <rules>
-                <!-- implementation is needed only for Maven 2 -->
-                <rule implementation="org.jacoco.maven.RuleConfiguration">
-                  <element>BUNDLE</element>
-                  <limits>
-                    <!-- implementation is needed only for Maven 2 -->
-                    <limit implementation="org.jacoco.report.check.Limit">
-                      <counter>COMPLEXITY</counter>
-                      <value>COVEREDRATIO</value>
-                      <minimum>0.60</minimum>
-                    </limit>
-                  </limits>
-                </rule>
-              </rules>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
-        <version>3.7.1</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>3.5.0</version>
-      </plugin>
     </plugins>
   </build>
-
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.6.3</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>3.5.0</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-report-plugin</artifactId>
-        <configuration>
-          <skipEmptyReport>false</skipEmptyReport>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <reportSets>
-          <reportSet>
-            <reports>
-              <report>report</report>
-            </reports>
-          </reportSet>
-        </reportSets>
-      </plugin>
-    </plugins>
-  </reporting>
-
 </project>
