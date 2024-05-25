@@ -20,3 +20,7 @@ abstract: |
 Usaremos Java como lenguaje de programación, con proyectos maven.
 Para la especificación de expresiones regulares y sus acciones, Jflex y CUP.
 
+# Teórico
+
+Se puede encontar el trabajo teórico en una rama a parte: teorico-antrl.
+
